@@ -29,7 +29,9 @@ end
 end
 
 Post.all.each do |post|
-  Comment.new(post.id, Faker::Name.name, Faker::Lorem.sentence)
+  rand(1..5).times do
+    Comment.new(Faker::Lorem.sentence, Faker::Name.name, post.id)
+  end
 end
 
 system('clear')

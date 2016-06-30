@@ -19,8 +19,13 @@ class Post
       title: @title,
       author: @author,
       body: @body,
-      published: @published
+      published: @published,
+      comments: comments
     }.to_json
+  end
+
+  def comments
+    Comment.all.select { |c| c.post_id == id }
   end
 
   def Post.all
