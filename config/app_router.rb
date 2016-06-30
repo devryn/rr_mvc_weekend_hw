@@ -14,8 +14,12 @@ class AppRouter < Router
 
   def routes
     [
-      get('/posts', PostController, :index),
+
       get('/posts/:id', PostController, :show),
+      get('/posts', PostController, :index),
+
+      get('/comments/:id', CommentController, :show),
+      get('/comments', CommentController, :index),
       # post('/tweets', TweetsController, :create),
       # get('/tweets/new', TweetsController, :new),
       # get('/tweets/:id', TweetsController, :show),
