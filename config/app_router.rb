@@ -32,7 +32,7 @@ class AppRouter < Router
       # get('/not_here', TweetsController, :not_here), # This is to demo the new redirect_to method
       #
       # root(TweetsController, :index),
-      root(PostController, :index)
+      root(PostController, :limited_index)
     ]
   end
 end

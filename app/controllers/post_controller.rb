@@ -7,6 +7,10 @@ class PostController < ApplicationController
     render Post.all.to_json, status: "200 OK"
   end
 
+  def limited_index
+    render Post.all[0..9].to_json
+  end
+
   def show
     index = params[:id].to_i - 1
     post = Post.all[index]
