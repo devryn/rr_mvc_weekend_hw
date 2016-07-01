@@ -4,7 +4,7 @@ class Post
   attr_reader :id
   attr_accessor :title, :author, :body, :published
 
-  def initialize(title, author, body, published)
+  def initialize(title, author, body, published = false)
     @@all << self
     @id = set_id
     @title = title
