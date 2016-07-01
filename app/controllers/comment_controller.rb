@@ -13,9 +13,14 @@ class CommentController < ApplicationController
     end
   end
 
+  def show_comments
+    post_comments = Comment.all.select { |c| c.post_id == params[:id].to_i}
+
+    render(post_comments.to_json)
+  end
+
   def create
     Comment.new(params["message"], params["author"], params["post_id"].to_i)
-
 
     redirect_to "/posts/#{params["post_id"]}"
   end
