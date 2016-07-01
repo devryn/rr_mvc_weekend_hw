@@ -12,8 +12,10 @@ class AppRouter < Router
   #
   # Put your routes in this array using the get, post, put, delete methods found in the parent Router class. (remember order matters)
 
+
   def routes
     [
+
       get('/posts/:id/comments', CommentController, :show_comments),
       get('/posts/:id', PostController, :show),
       get('/posts', PostController, :index),

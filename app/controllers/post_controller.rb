@@ -1,10 +1,22 @@
 class PostController < ApplicationController
 
-  def index
+  def limit_body
     Post.all.each do |post|
       post.body = post.body[0..299]
     end
-    render Post.all.to_json, status: "200 OK"
+  end
+
+  def index
+    limit_body
+    if params["page"]
+      page = params["page"].to_i
+      bottom = (1 + (10 * (page - 1))) - 1
+      top = (page * 10) - 1
+      posts = Post.all[bottom..top]
+    else
+      posts = Posts.all
+    end
+    render posts.to_json
   end
 
   def limited_index
