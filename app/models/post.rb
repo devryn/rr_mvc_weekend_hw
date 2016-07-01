@@ -13,6 +13,16 @@ class Post
     @published = published
   end
 
+  def to_hash
+    {
+      id: @id,
+      title: @title,
+      author: @author,
+      body: @body,
+      published: @published,
+    }
+  end
+
   def to_json(json_arg = nil)
     {
       id: @id,
@@ -20,7 +30,6 @@ class Post
       author: @author,
       body: @body,
       published: @published,
-      comments: comments
     }.to_json
   end
 
