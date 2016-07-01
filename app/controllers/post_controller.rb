@@ -17,7 +17,7 @@ class PostController < ApplicationController
 
   def create
     post = Post.new(params["title"], params["author"], params["body"])
-    Post.all.push(post)
+    
 
     redirect_to "/posts/#{post.id}"
   end

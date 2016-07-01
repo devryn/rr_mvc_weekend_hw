@@ -12,4 +12,11 @@ class CommentController < ApplicationController
       render({ message: "Comment not found" }, status: "404 NOT FOUND")
     end
   end
+
+  def create
+    Comment.new(params["message"], params["author"], params["post_id"].to_i)
+
+
+    redirect_to "/posts/#{params["post_id"]}"
+  end
 end
